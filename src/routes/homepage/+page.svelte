@@ -1,3 +1,7 @@
+<script>
+    export let data;
+</script>
+
 <style>
     nav a h1, nav div a {
         margin: 0.2em;
@@ -56,10 +60,10 @@
     <a role="button" href="/notes/new">New Note</a>
     <div class="container">
         <ul>
-            <li><div class="note"><a href="/notes/noteID">Test item </a><button type="button"><i class="fa fa-trash" aria-hidden="true"></i>
+            {#each data.current_user_notes as note}
+            <li><div class="note"><a href="/notes/{note.id}">{note.name}</a><button type="button"><i class="fa fa-trash" aria-hidden="true"></i>
             </button></div></li>
-            <li><div class="note"><a href="/notes/noteID">Test item 2</a><button type="button"><i class="fa fa-trash" aria-hidden="true"></i>
-            </button></div></li>
+            {/each}
         </ul>
     </div>
 </div>

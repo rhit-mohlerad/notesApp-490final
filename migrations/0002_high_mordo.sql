@@ -1,0 +1,1 @@
+ALTER TABLE "notes" ADD COLUMN "id" serial NOT NULL;

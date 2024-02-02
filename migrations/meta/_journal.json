@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1706903739067,
+      "tag": "0000_unusual_slipstream",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1706904626407,
+      "tag": "0001_brave_carlie_cooper",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1706904779695,
+      "tag": "0002_high_mordo",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1706909188945,
+      "tag": "0003_chilly_shiva",
+      "breakpoints": true
+    }
+  ]
+}
