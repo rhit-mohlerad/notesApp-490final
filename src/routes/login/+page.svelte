@@ -14,7 +14,7 @@
     }
 
 </style>
-<h1>Log In</h1>
+<a href="/"><h1>Notes</h1></a>
 <div class="container">
 
     <p>Welcome back!</p>
