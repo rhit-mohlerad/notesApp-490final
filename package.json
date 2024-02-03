@@ -10,7 +10,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"studio": "drizzle-kit studio --config drizzle.config.ts",
 		"generate": "drizzle-kit generate:pg --config drizzle.config.ts",
-		"migrate": "drizzle-kit push:pg --config drizzle.config.ts"
+		"migrate": "drizzle-kit push:pg --config drizzle.config.ts",
+		"start": "node build/index.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -26,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^4.0.1",
 		"bcrypt": "^5.1.1",
 		"drizzle-orm": "^0.29.3",
 		"postgres": "^3.4.3"
