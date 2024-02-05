@@ -6,7 +6,7 @@
     <a href="/"><h1>Notes</h1></a>
     <div>
         {#if data?.email}
-            <form method="POST" action="?/logout">
+            <form method="POST" action="/?/logout">
                 <button>Log Out</button>
             </form>
         {:else}
@@ -16,12 +16,6 @@
     </div>
 </nav>
 
-<div class="container">
-    <h2>Like Google Keep, but better!</h2>
-    <p>Simplistic, effective webapp for Markdown editing</p>
-    <a role="button" href="/signup">Get Started!</a>
-</div>
-
 <style>
     nav a h1, nav div a {
         margin: 0.2em;
@@ -30,9 +24,11 @@
     nav {
         margin-right: 0.5em;
     }
-
-    .container {
-        margin-top: 10em;
-        text-align: center;
+    button {
+        margin: 0.3em;
+        padding: 0.2em;
     }
+
 </style>
+
+<slot></slot>

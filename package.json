@@ -30,6 +30,7 @@
 		"@sveltejs/adapter-node": "^4.0.1",
 		"bcrypt": "^5.1.1",
 		"drizzle-orm": "^0.29.3",
-		"postgres": "^3.4.3"
+		"postgres": "^3.4.3",
+		"svelte-exmarkdown": "^3.0.3"
 	}
 }

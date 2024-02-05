@@ -4,8 +4,6 @@
     const signupsuccess = $page.url.searchParams.has("signupsuccess");
     export let form;
 </script>
-
-<a href="/"><h1>Notes</h1></a>
 <div class="container">
     <p>Welcome back!</p>
     {#if form?.incorrect}<p class="error">
@@ -36,9 +34,6 @@
 </div>
 
 <style>
-    h1 {
-        margin-left: 0.2em;
-    }
     .container {
         margin-top: 5em;
     }

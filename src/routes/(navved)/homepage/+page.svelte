@@ -48,13 +48,6 @@
 
 </style>
 
-<nav>
-    <a href="/"><h1>Notes</h1></a>
-    <div>
-        <a href="/profile">Profile</a>
-        <a href="/signout" role="button">Sign Out</a>
-    </div>
-</nav>
 <div class="container">
     <hr>
     <a role="button" href="/notes/new">New Note</a>
