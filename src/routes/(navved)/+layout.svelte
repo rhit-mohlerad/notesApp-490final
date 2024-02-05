@@ -24,9 +24,15 @@
     nav {
         margin-right: 0.5em;
     }
-    button {
+    nav div {
+        align-self: center;
         margin: 0.3em;
         padding: 0.2em;
+        margin-bottom: 0;
+    }
+
+    nav form {
+        margin-bottom: 0;
     }
 
 </style>

@@ -1,17 +1,18 @@
-<script>
-    import backgroundImage from '$lib/images/background.gif';
-</script
 
-<div class="container">
+<section>
     <h2>Like Google Keep, but better!</h2>
     <p>Simplistic, effective webapp for Markdown editing</p>
     <a role="button" href="/signup">Get Started!</a>
-</div>
+</section>
 
 <style>
-    .container {
-        margin-top: 10em;
+    section {
         text-align: center;
-        background-image: url({backgroundImage});
+        margin-top: 8em;
+        background-image: url($lib/images/background.gif);
+        background-position: bottom;
+        height: 65vh;
+        width: 100%;
+        margin-bottom: 0;
     }
 </style>
