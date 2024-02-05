@@ -1,4 +1,6 @@
-
+<script>
+    import backgroundImage from '$lib/images/background.gif';
+</script
 
 <div class="container">
     <h2>Like Google Keep, but better!</h2>
@@ -10,5 +12,6 @@
     .container {
         margin-top: 10em;
         text-align: center;
+        background-image: url({backgroundImage});
     }
 </style>
