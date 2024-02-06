@@ -50,7 +50,7 @@
 
 <div class="container">
     <hr>
-    <a role="button" href="/notes/new">New Note</a>
+    <a role="button" href="/notes">New Note</a>
     <div class="container">
         <ul>
             {#each data.current_user_notes as note}
