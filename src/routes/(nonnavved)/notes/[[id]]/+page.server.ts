@@ -11,12 +11,8 @@ export const actions = {
         const data = await request.formData();
         const title = data.get('title');
         const content = data.get('textarea');
-        let email;
-        if (!locals.email) {
-            email = " ";
-        } else {
-            email = locals.email;
-        }
+        let email = locals.email;
+
 
         if (!title || !content) {
             return fail(400, { content, title, missing: true });
@@ -33,6 +29,10 @@ export const actions = {
 
 
 export const load = (async (context) => {
+    const { locals } = context;
+    if (!locals.email) {
+        throw redirect(303, '/');
+    }
     const { params } = context;
     // Access route parameters
     const { id } = params;

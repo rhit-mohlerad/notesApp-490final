@@ -16,7 +16,7 @@
     <input type="text" id="title" name="title" value={data.current_note.name} placeholder="Name your note..." />
     <button id="save">Save Note</button>
 </nav>
-    {#if form?.missing}<p class="error">Note title and/or content cannot be empty.</p>{/if}
+
 <div>
     <label hidden for="textarea">Note text content</label>
     <textarea name="textarea" id="textarea" bind:value={md} />
@@ -24,7 +24,7 @@
         <Markdown {md} {plugins} />
     </div>
 </div>
-
+    {#if form?.missing}<p class="error">Note title and/or content cannot be empty.</p>{/if}
 </form>
 <style>
     #title {
@@ -37,6 +37,12 @@
         margin: 5px;
         height: fit-content;
         width: fit-content;
+    }
+    form p {
+        text-align: center;
+    }
+    .error {
+        color: red;
     }
     input {
         width: fit-content;

@@ -3,8 +3,6 @@
 
     export let form;
 </script>
-
-<a href="/static"><h1>Notes</h1></a>
 <div class="container">
     <p>Welcome!</p>
     {#if form?.missing}<p class="error">All fields are required!</p>{/if}

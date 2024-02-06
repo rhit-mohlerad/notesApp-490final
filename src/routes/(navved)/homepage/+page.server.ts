@@ -2,14 +2,12 @@ import { db } from '$lib/db/db.server';
 import { notes } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
+import {redirect} from "@sveltejs/kit";
 
 export const load = (async (context) => {
     const { locals } = context;
     if (!locals || !locals.email) {
-        // Handle the case where locals or locals.email is undefined
-        return {
-            current_user_notes: [],
-        };
+        throw redirect(303, '/');
     }
     const current_user_notes = await db.select().from(notes).where(eq(notes.email, locals.email))
     return {
