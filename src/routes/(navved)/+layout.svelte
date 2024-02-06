@@ -4,8 +4,9 @@
 
 <nav>
     <a href="/"><h1>Notes</h1></a>
-    <div>
+    <div class="buttons">
         {#if data?.email}
+            <a href="/profile">Profile</a>
             <form method="POST" action="/?/logout">
                 <button>Log Out</button>
             </form>
@@ -17,6 +18,9 @@
 </nav>
 
 <style>
+    nav .buttons {
+        display: flex;
+    }
     nav a h1, nav div a {
         margin: 0.2em;
         margin-bottom: 0;

@@ -1,10 +1,16 @@
 import { db } from "$lib/db/db.server";
 import { users } from "$lib/db/schema";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { fail, redirect } from '@sveltejs/kit';
 import { hash } from 'bcrypt';
 import { eq } from 'drizzle-orm';
 
+
+export const load: PageServerLoad = ({locals}) => {
+    if (locals && locals.email) {
+        throw redirect(303, '/homepage');
+    }
+}
 const validateEmail = (email: string) => {
     return email.match(
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

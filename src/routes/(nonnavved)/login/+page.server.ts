@@ -1,12 +1,16 @@
 import { db } from "$lib/db/db.server";
 import { users } from "$lib/db/schema";
 import { createSession } from '$lib/sessionStore/index.server';
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { fail, redirect } from '@sveltejs/kit';
 import { hash, compare } from 'bcrypt';
 import { eq } from 'drizzle-orm';
 
-
+export const load: PageServerLoad = ({locals}) => {
+    if (locals && locals.email) {
+        throw redirect(303, '/homepage');
+    }
+}
 export const actions = {
     default: async ({ cookies, request }) => {
         const data = await request.formData();

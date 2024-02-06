@@ -29,13 +29,16 @@
         list-style: none;
         padding: 1em;
         border: 1px solid lightgray;
-        border-radius: 4%;
+        border-radius: 5px;
     }
     .note {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+    }
+    li form {
+        margin-bottom: 0;
     }
     .note > button {
         align-self: center;
