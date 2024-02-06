@@ -1,5 +1,6 @@
 <script>
     export let data;
+    export let form;
 </script>
 
 <style>
@@ -45,6 +46,13 @@
         align-self: center;
     }
 
+    .success {
+        color: green;
+    }
+    .failure {
+        color: red;
+    }
+
 
 </style>
 
@@ -54,9 +62,16 @@
     <div class="container">
         <ul>
             {#each data.current_user_notes as note}
-            <li><div class="note"><a href="/notes/{note.id}">{note.name}</a><button type="button"><i class="fa fa-trash" aria-hidden="true"></i>
-            </button></div></li>
+            <li><form method="post"><div class="note"><a href="/notes/{note.id}">{note.name}</a><button name="delButton" value={note.id} type="submit"><i class="fa fa-trash" aria-hidden="true"></i>
+            </button></div></form></li>
             {/each}
         </ul>
     </div>
+    {#if form?.success}
+        <p class="success">Successfully deleted note!</p>
+    {/if}
+
+    {#if form && !form?.success}
+        <p class="failure">Note deletion unsuccessful. Oh no!</p>
+    {/if}
 </div>
