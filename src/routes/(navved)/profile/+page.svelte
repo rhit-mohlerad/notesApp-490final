@@ -41,7 +41,7 @@
 
 <div id="options" class="container">
     <h3>Other Options</h3>
-    <form method="post">
+    <form>
         <button>Export Data</button>
         <button>Delete Account</button>
     </form>
