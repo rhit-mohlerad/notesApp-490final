@@ -66,6 +66,7 @@
     }
     #options form {
         display: flex;
+        justify-content: center;
     }
     .container > h3 {
         text-align: center;
