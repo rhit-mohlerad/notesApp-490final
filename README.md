@@ -1,38 +1,15 @@
-# create-svelte
+# Notes App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+For our final project in CSSE490 - Advanced Web Development, we created a notes app with user authentication and data export capabilities.
 
-## Creating a project
+## Technical Specifications
 
-If you're seeing this, you've probably already done this step. Congrats!
+Our notes app was created using SvelteKit and Typescript on a Postgres database.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+For our zip file exporter, we used [JSZip](https://stuk.github.io/jszip/).
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+For our markdown editor, we used [svelte-exmarkdown](https://github.com/ssssota/svelte-exmarkdown).
 
-## Developing
+For our ORM, we used [Drizzle ORM](https://orm.drizzle.team/).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+For our CSS styling, we used [PicoCSS[(https://picocss.com/).
