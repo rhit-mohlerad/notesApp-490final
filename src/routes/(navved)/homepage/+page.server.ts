@@ -1,7 +1,7 @@
 import { db } from '$lib/db/db.server';
 import { notes } from '$lib/db/schema';
 import type { Actions } from "./$types";
-import { eq } from 'drizzle-orm';
+import {and, eq} from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
 import {redirect} from "@sveltejs/kit";
 
@@ -22,7 +22,7 @@ export const actions = {
         const id = data.get('delButton');
 
         if (id) {
-            await db.delete(notes).where(eq(notes.id, parseInt(id)));
+            await db.delete(notes).where(and(eq(notes.id, parseInt(id)), eq(notes.email, locals.email.toString())));
             return {success: true};
         } else {
             return {success: false};

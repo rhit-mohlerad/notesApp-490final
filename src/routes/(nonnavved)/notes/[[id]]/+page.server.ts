@@ -1,7 +1,7 @@
 import { db } from "$lib/db/db.server";
 import type { Actions } from "./$types";
 import { fail, redirect } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm';
+import {and, eq} from 'drizzle-orm';
 import {notes} from "../../../../lib/db/schema";
 import type { PageServerLoad } from './$types';
 
@@ -12,13 +12,12 @@ export const actions = {
         const title = data.get('title');
         const content = data.get('textarea');
         let email = locals.email;
-
-
+        // let [currentNote] = await db.select().from(notes).where(and(eq(notes.id, parseInt(id)), eq(notes.email, email.toString())));
         if (!title || !content) {
             return fail(400, { content, title, missing: true });
         }
         if (id) {
-            await db.update(notes).set({content: content, name: title }).where(eq(notes.id, parseInt(id)));
+            await db.update(notes).set({content: content, name: title }).where(and(eq(notes.id, parseInt(id)), eq(notes.email, email.toString())));
         } else {
             await db.insert(notes).values({email: email, content: content, name: title });
         }
@@ -47,7 +46,7 @@ export const load = (async (context) => {
         };
         return {current_note};
     }
-    const [current_note] = await db.select().from(notes).where(eq(notes.id, parseInt(id)))
+    const [current_note] = await db.select().from(notes).where(and(eq(notes.id, parseInt(id)), eq(notes.email, locals.email.toString())));
     return {
         current_note
     };
