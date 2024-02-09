@@ -3,7 +3,7 @@ import { notes } from '$lib/db/schema';
 import type { Actions } from "./$types";
 import { eq } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
-import {fail, redirect} from "@sveltejs/kit";
+import {redirect} from "@sveltejs/kit";
 
 export const load = (async (context) => {
     const { locals } = context;

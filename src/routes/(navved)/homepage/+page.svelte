@@ -4,12 +4,9 @@
 </script>
 
 <style>
-    nav a h1, nav div a {
+    nav div a {
         margin: 0.2em;
         margin-bottom: 0;
-    }
-    nav {
-        margin-right: 0.5em;
     }
     .container {
         margin-top: 2em;

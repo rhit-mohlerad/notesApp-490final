@@ -73,8 +73,4 @@
         padding-top: 0;
         margin-bottom: 0;
     }
-    nav a h1 {
-        padding-top: 0;
-        margin-bottom: 0;
-    }
 </style>

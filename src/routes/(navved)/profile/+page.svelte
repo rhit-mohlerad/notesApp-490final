@@ -62,7 +62,7 @@
 <div id="options" class="container">
     <h3>Other Options</h3>
     <form>
-        <button>Export Data</button>
+        <a role="button" target="_blank" href="/profile/download-notes">Export Data</a>
         <button on:click={() => (showModal = true)}>Delete Account</button>
     </form>
 </div>
@@ -70,9 +70,6 @@
 
 
 <style>
-    h1 {
-        margin-left: 0.2em;
-    }
     .container {
         margin-top: 5em;
     }

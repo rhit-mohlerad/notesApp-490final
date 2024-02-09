@@ -1,13 +1,12 @@
-import { fail, redirect } from '@sveltejs/kit';
-import type { Actions, PageServerLoad } from './$types';
-import { page } from '$app/stores';
-import { db } from "$lib/db/db.server";
-import { users, notes } from "$lib/db/schema";
-import { hash } from 'bcrypt';
-import { createSession } from '$lib/sessionStore/index.server';
-import { eq } from 'drizzle-orm';
+import {fail, redirect} from '@sveltejs/kit';
+import type {Actions} from './$types';
+import {db} from "$lib/db/db.server";
+import {notes, users} from "$lib/db/schema";
+import {createSession} from '$lib/sessionStore/index.server';
+import {eq} from 'drizzle-orm';
+
 export const load = (async (context) => {
-    const { locals } = context;
+    const {locals} = context;
     if (!locals || !locals.email) {
         throw redirect(303, '/');
     }
@@ -23,27 +22,30 @@ const validateEmail = (email: string) => {
 };
 
 export const actions = {
-    updateProfile: async ({ cookies, locals, request }) => {
+    updateProfile: async ({cookies, locals, request}) => {
         const data = await request.formData();
         const name = data.get('name');
         const email = data.get('email');
 
         if (!email || !name) {
-            return fail(400, { name, email, missing: true });
+            return fail(400, {name, email, missing: true});
         }
         if (!validateEmail(email.toString().toLowerCase())) {
-            return fail(400, { name, invalidEmail: true });
+            return fail(400, {name, invalidEmail: true});
         }
 
         const [user] = await db.select().from(users).where(eq(users.email, email.toString().toLowerCase()));
 
         if (user && user.email != locals.email) {
-            return fail(400, { exists: true })
+            return fail(400, {exists: true})
         }
 
         // @ts-ignore
         const oldEmail = locals.email.toString();
-        await db.update(users).set({ name: name.toString(), email: email.toString().toLowerCase()}).where(eq(users.email, oldEmail));
+        await db.update(users).set({
+            name: name.toString(),
+            email: email.toString().toLowerCase()
+        }).where(eq(users.email, oldEmail));
         await db.update(notes).set({email: email.toString().toLowerCase()}).where(eq(notes.email, oldEmail));
         locals.email = email.toString();
         const maxAge = 1000 * 60 * 60 * 24 * 30; // 30 days
@@ -53,13 +55,15 @@ export const actions = {
             path: "/"
         });
     },
-    deleteAccount: async ({ cookies, locals, request }) => {
+    deleteAccount: async ({cookies, locals}) => {
+        // @ts-ignore
         let userEmail = locals.email.toString();
         await db.delete(notes).where(eq(notes.email, userEmail.toLowerCase()));
         await db.delete(users).where(eq(users.email, userEmail.toLowerCase()));
         cookies.delete('sessionid', {path: '/'});
         throw redirect(303, '/');
-
     },
+
+
 
 } satisfies Actions;

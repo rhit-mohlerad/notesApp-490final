@@ -53,9 +53,6 @@
 </div>
 
 <style>
-    h1 {
-        margin-left: 0.2em;
-    }
     .container {
         margin-top: 5em;
     }
