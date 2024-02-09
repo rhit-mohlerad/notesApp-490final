@@ -1,9 +1,10 @@
 <script>
     import { enhance } from "$app/forms";
-
+    import Modal from './Modal.svelte';
     export let form;
     export let data;
     let currentUser = data.current_user;
+    let showModal = false;
 </script>
 <div class="container">
     <h3>Your Info</h3>
@@ -12,7 +13,7 @@
     {#if form?.exists}<p class="error">
         User with that email already exists!
     </p>{/if}
-    <form method="post">
+    <form method="post" action="?/updateProfile">
         <div class="form">
             <label for="name">
                 Name
@@ -34,18 +35,39 @@
                         value={currentUser.email ?? ""}
                 />
             </label>
-            <button>Save Changes</button>
+                <button>Save Changes</button>
+
         </div>
     </form>
+
+    <Modal bind:showModal id="modal">
+        <h2 slot="header">
+            Are you sure you want to delete your entire account?
+        </h2>
+
+        <div>
+            If you do this, you will lose all data and the ability to log in to our wonderful
+            app without creating an account again.
+            We suggest that you export your data if you haven't already.
+            <br>
+            <br>
+            Are you sure you want to continue?
+        </div>
+        <form method="post" action="?/deleteAccount">
+        <button>Yes, I am positive</button>
+        </form>
+    </Modal>
 </div>
 
 <div id="options" class="container">
     <h3>Other Options</h3>
     <form>
         <button>Export Data</button>
-        <button>Delete Account</button>
+        <button on:click={() => (showModal = true)}>Delete Account</button>
     </form>
 </div>
+
+
 
 <style>
     h1 {

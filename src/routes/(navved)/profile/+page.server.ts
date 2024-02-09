@@ -23,7 +23,7 @@ const validateEmail = (email: string) => {
 };
 
 export const actions = {
-    default: async ({ cookies, locals, request }) => {
+    updateProfile: async ({ cookies, locals, request }) => {
         const data = await request.formData();
         const name = data.get('name');
         const email = data.get('email');
@@ -53,4 +53,13 @@ export const actions = {
             path: "/"
         });
     },
+    deleteAccount: async ({ cookies, locals, request }) => {
+        let userEmail = locals.email.toString();
+        await db.delete(notes).where(eq(notes.email, userEmail.toLowerCase()));
+        await db.delete(users).where(eq(users.email, userEmail.toLowerCase()));
+        cookies.delete('sessionid', {path: '/'});
+        throw redirect(303, '/');
+
+    },
+
 } satisfies Actions;
