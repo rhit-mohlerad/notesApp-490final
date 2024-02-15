@@ -29,6 +29,27 @@
       "when": 1706909188945,
       "tag": "0003_chilly_shiva",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1708010451176,
+      "tag": "0004_nosy_gressill",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1708011120805,
+      "tag": "0005_mighty_marvel_apes",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1708036390809,
+      "tag": "0006_quick_strong_guy",
+      "breakpoints": true
     }
   ]
 }

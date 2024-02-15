@@ -17,6 +17,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/pg": "^8.11.0",
 		"dotenv": "^16.4.1",
 		"drizzle-kit": "^0.20.14",
 		"pg": "^8.11.3",
@@ -32,6 +33,7 @@
 		"drizzle-orm": "^0.29.3",
 		"jszip": "^3.10.1",
 		"postgres": "^3.4.3",
-		"svelte-exmarkdown": "^3.0.3"
+		"svelte-exmarkdown": "^3.0.3",
+		"svelte-routing": "^2.12.0"
 	}
 }
